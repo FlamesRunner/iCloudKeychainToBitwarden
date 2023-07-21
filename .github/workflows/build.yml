@@ -20,8 +20,8 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-        apt-get update
-        apt-get install -y libqt5-dev
+        sudo apt-get update
+        sudo apt-get install -y libqt5-dev
     - name: Build the application
       run: |
         pyinstaller app.spec
