@@ -1,0 +1,27 @@
+name: Build Release
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Change this to your Python version
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        apt-get update
+        apt-get install -y libqt5-dev
+    - name: Build the application
+      run: |
+        pyinstaller app.spec
