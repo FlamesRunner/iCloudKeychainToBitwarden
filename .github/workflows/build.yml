@@ -24,3 +24,6 @@ jobs:
     - name: Build the application
       run: |
         pyinstaller app.spec
+    - uses: actions/upload-artifact@v2
+      with:
+        path: dist/*
