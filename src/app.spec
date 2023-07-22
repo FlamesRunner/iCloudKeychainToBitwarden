@@ -27,8 +27,7 @@ exe = EXE(
     a.binaries,
     a.zipfiles,
     a.datas,
-    exclude_binaries=True,
-    name='iCloud Keychain to Bitwarden',
+    name='iCloud Keychain to BitWarden',
     debug=False,
     bootloader_ignore_signals=False,
     strip=True,
@@ -39,6 +38,4 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon="app_icon.ico",
 )
-
