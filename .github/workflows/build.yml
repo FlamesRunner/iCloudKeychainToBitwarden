@@ -12,13 +12,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.x  # Change this to your Python version
-
     - name: Generate Windows Binary
-      uses: JackMcKew/pyinstaller-action-windows@main
+      uses: JackMcKew/pyinstaller-action-windows@python3-10-pyinstaller-5-3
       with:
         path: .
         spec: app.spec
@@ -29,7 +24,7 @@ jobs:
         path: dist/
 
     - name: Generate Linux Binary
-      uses: JackMcKew/pyinstaller-action-linux@main
+      uses: JackMcKew/pyinstaller-action-linux@python3.10
       with:
         path: .
         spec: app.spec
