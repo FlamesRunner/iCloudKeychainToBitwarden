@@ -105,18 +105,18 @@ jobs:
     - name: Move artifacts
       run: |
         mkdir src/dist
-        zip -r src/dist/macos.zip src/tmp/macos-dist/* 
-        zip -r src/dist/windows.zip src/tmp/windows-dist/*
-        zip -r src/dist/linux.zip src/tmp/linux-dist/* 
+        zip src/dist/macos.zip src/tmp/macos-dist/* 
+        zip src/dist/windows.zip src/tmp/windows-dist/*
+        zip src/dist/linux.zip src/tmp/linux-dist/* 
 
-    - name: Create Release
+    - name: Create release
       uses: softprops/action-gh-release@v1
       with:
         files: |
           src/dist/*
-        tag_name: ${{ github.run_number }}.${{ github.run_attempt }}
+        tag_name: 0.${{ github.run_number }}.${{ github.run_attempt }}
         body: |
-          Release ${{ github.run_number }}.${{ github.run_attempt }}
+          Release 0.${{ github.run_number }}.${{ github.run_attempt }}
         draft: false
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
