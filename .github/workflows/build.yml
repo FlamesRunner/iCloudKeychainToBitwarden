@@ -20,7 +20,7 @@ jobs:
 
     # List all the files in dist
     - name: List files in dist
-      run: ls -lhR src/dist
+      run: ls -lhR src/
 
     - uses: actions/upload-artifact@v2
       with:
@@ -35,7 +35,7 @@ jobs:
 
     # List all the files in dist
     - name: List files in dist
-      run: ls -lhR src/dist
+      run: ls -lhR src/
 
     - uses: actions/upload-artifact@v2
       with:
