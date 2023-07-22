@@ -19,8 +19,8 @@ jobs:
 
     - name: Generate Windows Binary
       uses: JackMcKew/pyinstaller-action-windows@main
-        with:
-          path: .
+      with:
+        path: .
 
     - uses: actions/upload-artifact@v2
       with:
@@ -29,8 +29,8 @@ jobs:
 
     - name: Generate Linux Binary
       uses: JackMcKew/pyinstaller-action-linux@main
-        with:
-          path: .
+      with:
+        path: .
 
     - uses: actions/upload-artifact@v2
       with:
