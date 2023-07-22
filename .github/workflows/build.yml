@@ -21,7 +21,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: Windows Binary
-        path: dist/
+        path: dist/*
 
     - name: Generate Linux Binary
       uses: JackMcKew/pyinstaller-action-linux@python3.10
@@ -32,5 +32,5 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: Linux Binary
-        path: dist/
+        path: dist/*
       
