@@ -104,6 +104,7 @@ jobs:
 
     - name: Move artifacts
       run: |
+        mkdir src/dist
         mv src/tmp/macos-dist/* src/dist/
         mv src/tmp/windows-dist/* src/dist/
         mv src/tmp/linux-dist/* src/dist/
