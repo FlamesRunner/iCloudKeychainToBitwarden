@@ -17,13 +17,23 @@ jobs:
       with:
         python-version: 3.x  # Change this to your Python version
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-        sudo apt-get update
-    - name: Build the application
-      run: |
-        pyinstaller app.spec
+    - name: Generate Windows Binary
+      uses: JackMcKew/pyinstaller-action-windows@main
+        with:
+          path: .
+
     - uses: actions/upload-artifact@v2
       with:
-        path: dist/*
+        name: Windows Binary
+        path: dist/
+
+    - name: Generate Linux Binary
+      uses: JackMcKew/pyinstaller-action-linux@main
+        with:
+          path: .
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Linux Binary
+        path: dist/
+      
