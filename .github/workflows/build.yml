@@ -15,12 +15,12 @@ jobs:
     - name: Generate Windows Binary
       uses: JackMcKew/pyinstaller-action-windows@python3-10-pyinstaller-5-3
       with:
-        path: .
+        path: src
         spec: app.spec
 
     # List all the files in dist
     - name: List files in dist
-      run: ls dist/windows/
+      run: ls -lhR src/dist
 
     - uses: actions/upload-artifact@v2
       with:
@@ -30,8 +30,12 @@ jobs:
     - name: Generate Linux Binary
       uses: JackMcKew/pyinstaller-action-linux@python3.10
       with:
-        path: .
+        path: src
         spec: app.spec
+
+    # List all the files in dist
+    - name: List files in dist
+      run: ls -lhR src/dist
 
     - uses: actions/upload-artifact@v2
       with:
