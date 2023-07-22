@@ -80,9 +80,9 @@ jobs:
       with:
         files: |
           dist/*
-        tag_name: ${{ github.sha }}
+        tag_name: ${{ github.run_number }}.${{ github.run_attempt }}
         body: |
-          Release ${{ github.sha }}
+          Release ${{ github.run_number }}.${{ github.run_attempt }}
         draft: false
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
