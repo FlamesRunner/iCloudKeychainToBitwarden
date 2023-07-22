@@ -9,7 +9,7 @@ permissions:
   contents: write
   
 jobs:
-  build-linux-windows-release:
+  build-windows-release:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -20,6 +20,19 @@ jobs:
       with:
         path: src
         spec: app.spec
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: dist
+        path: |
+          src/dist/windows/*
+
+  build-linux-release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
     - name: Generate Linux Binary
       uses: JackMcKew/pyinstaller-action-linux@python3.10
@@ -32,9 +45,8 @@ jobs:
       with:
         name: dist
         path: |
-          src/dist/windows/*
           src/dist/linux/*
-          
+  
   build-macos-release:
     runs-on: macos-13
     steps:
@@ -64,7 +76,7 @@ jobs:
         path: src/dist/*
 
   build-all-release:
-    needs: [build-linux-windows-release, build-macos-release]
+    needs: [build-linux-release, build-macos-release, build-windows-release]
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
