@@ -104,9 +104,9 @@ jobs:
 
     - name: Unzip artifacts
       run: |
-        unzip src/tmp/linux-dist.zip -d src/tmp/linux
-        unzip src/tmp/macos-dist.zip -d src/tmp/macos
-        unzip src/tmp/windows-dist.zip -d src/tmp/windows
+        unzip src/tmp/linux-dist -d src/tmp/linux
+        unzip src/tmp/macos-dist -d src/tmp/macos
+        unzip src/tmp/windows-dist -d src/tmp/windows
 
     - name: Move artifacts
       run: |
