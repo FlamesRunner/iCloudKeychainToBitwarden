@@ -18,19 +18,22 @@ jobs:
         path: src
         spec: app.spec
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Windows Binary
-        path: src/dist/windows/*
-
     - name: Generate Linux Binary
       uses: JackMcKew/pyinstaller-action-linux@python3.10
       with:
         path: src
         spec: app.spec
 
-    - uses: actions/upload-artifact@v2
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
       with:
-        name: Linux Binary
-        path: src/dist/linux/*
-      
+        files: |
+          src/dist/windows/*
+          src/dist/linux/*
+        tag_name: ${{ github.sha }}
+        body: |
+          Release ${{ github.sha }}
+        draft: false
+        prerelease: false
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
