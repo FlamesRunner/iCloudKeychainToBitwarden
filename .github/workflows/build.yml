@@ -18,14 +18,10 @@ jobs:
         path: src
         spec: app.spec
 
-    # List all the files in dist
-    - name: List files in dist
-      run: ls -lhR src/
-
     - uses: actions/upload-artifact@v2
       with:
         name: Windows Binary
-        path: dist/windows/*
+        path: src/dist/windows/*
 
     - name: Generate Linux Binary
       uses: JackMcKew/pyinstaller-action-linux@python3.10
@@ -33,12 +29,8 @@ jobs:
         path: src
         spec: app.spec
 
-    # List all the files in dist
-    - name: List files in dist
-      run: ls -lhR src/
-
     - uses: actions/upload-artifact@v2
       with:
         name: Linux Binary
-        path: dist/linux/*
+        path: src/dist/linux/*
       
