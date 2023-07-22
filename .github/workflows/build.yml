@@ -21,6 +21,11 @@ jobs:
         path: src
         spec: app.spec
 
+    - name: List the dist folder
+      working-directory: src
+      run: |
+        ls dist
+
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -39,6 +44,11 @@ jobs:
       with:
         path: src
         spec: app.spec
+
+    - name: List the dist folder
+      working-directory: src
+      run: |
+        ls dist
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
@@ -68,6 +78,11 @@ jobs:
       working-directory: src
       run: |
         pyinstaller app.spec
+
+    - name: List the dist folder
+      working-directory: src
+      run: |
+        ls dist
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
