@@ -105,8 +105,8 @@ jobs:
     - name: Move artifacts
       run: |
         mkdir src/dist
-        mv src/tmp/macos-dist/* src/dist/
-        mv src/tmp/windows-dist/* src/dist/
+        mv src/tmp/macos-dist/iCloud.Keychain.to.BitWarden src/dist/iCloud.Keychain.to.BitWarden-macOS
+        mv src/tmp/windows-dist/iCloud.Keychain.to.Bitwarden.exe src/dist/iCloud.Keychain.to.Bitwarden-Windows.exe
         mv src/tmp/linux-dist/* src/dist/
 
     - name: Create Release
