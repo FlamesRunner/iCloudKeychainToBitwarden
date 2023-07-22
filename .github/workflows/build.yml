@@ -102,17 +102,11 @@ jobs:
       with:
         path: src/tmp
 
-    - name: Unzip artifacts
-      run: |
-        unzip src/tmp/linux-dist -d src/tmp/linux
-        unzip src/tmp/macos-dist -d src/tmp/macos
-        unzip src/tmp/windows-dist -d src/tmp/windows
-
     - name: Move artifacts
       run: |
-        mv src/tmp/linux/* src/dist/
-        mv src/tmp/macos/* src/dist/
-        mv src/tmp/windows/* src/dist/
+        mv src/tmp/macos-dist/* src/dist/
+        mv src/tmp/windows-dist/* src/dist/
+        mv src/tmp/linux-dist/* src/dist/
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
