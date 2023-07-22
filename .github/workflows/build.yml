@@ -105,9 +105,9 @@ jobs:
     - name: Move artifacts
       run: |
         mkdir src/dist
-        mv src/tmp/macos-dist/iCloud.Keychain.to.BitWarden src/dist/iCloud.Keychain.to.BitWarden-macOS
-        mv src/tmp/windows-dist/iCloud.Keychain.to.Bitwarden.exe src/dist/iCloud.Keychain.to.Bitwarden-Windows.exe
-        mv src/tmp/linux-dist/* src/dist/
+        zip -r src/dist/macos.zip src/tmp/macos-dist/* 
+        zip -r src/dist/windows.zip src/tmp/windows-dist/*
+        zip -r src/dist/linux.zip src/tmp/linux-dist/* 
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
