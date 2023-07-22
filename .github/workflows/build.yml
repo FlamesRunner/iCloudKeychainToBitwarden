@@ -1,4 +1,4 @@
-name: Build Linux/Windows release
+name: Build and release
 
 on:
   push:
@@ -90,7 +90,7 @@ jobs:
         name: macos-dist
         path: src/dist/*
 
-  build-all-release:
+  create-release:
     needs: [build-linux-release, build-macos-release, build-windows-release]
     runs-on: ubuntu-latest
     steps:
@@ -100,7 +100,19 @@ jobs:
     - name: Download artifacts
       uses: actions/download-artifact@v3
       with:
-        path: src/dist
+        path: src/tmp
+
+    - name: Unzip artifacts
+      run: |
+        unzip src/tmp/linux-dist.zip -d src/tmp/linux
+        unzip src/tmp/macos-dist.zip -d src/tmp/macos
+        unzip src/tmp/windows-dist.zip -d src/tmp/windows
+
+    - name: Move artifacts
+      run: |
+        mv src/tmp/linux/* src/dist/
+        mv src/tmp/macos/* src/dist/
+        mv src/tmp/windows/* src/dist/
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
